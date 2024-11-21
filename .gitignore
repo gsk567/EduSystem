@@ -396,3 +396,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Custom
+# appsettings.json // ignore when using normal project
+appsettings.*.json
+
+.idea
+.DS_Store
