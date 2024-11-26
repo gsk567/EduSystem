@@ -9,4 +9,9 @@
       <ProjectReference Include="..\EduSystem.Data\EduSystem.Data.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Essentials" Version="0.0.10" />
+      <PackageReference Include="SendGrid" Version="9.29.3" />
+    </ItemGroup>
+
 </Project>

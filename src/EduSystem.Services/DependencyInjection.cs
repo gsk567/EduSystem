@@ -1,3 +1,4 @@
+using EduSystem.Services.Common;
 using EduSystem.Services.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.AddCommonServices(configuration);
         services.AddIdentityServices();
         
         return services;
