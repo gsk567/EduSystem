@@ -23,7 +23,7 @@ internal class SmtpSender : IEmailSender
         this.optionsAccessor = optionsAccessor;
         this.logger = logger;
     }
-    
+
     public async Task<StandardResult> SendEmailAsync(EmailModel model)
     {
         try
@@ -38,7 +38,7 @@ internal class SmtpSender : IEmailSender
                 From = new MailAddress(options.SenderEmail),
                 Subject = model.Subject,
                 Body = model.Message,
-                IsBodyHtml = false
+                IsBodyHtml = false,
             };
 
             mailMessage.To.Add(model.Email);

@@ -1,45 +1,34 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using EduSystem.Presentation.Models;
-using EduSystem.Services.Common.Constants;
 using EduSystem.Services.Common.Contracts;
-using EduSystem.Services.Common.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace EduSystem.Presentation.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly IEmailService _emailService;
-    private readonly ILogger<HomeController> _logger;
+    private readonly IEmailService emailService;
+    private readonly ILogger<HomeController> logger;
 
     public HomeController(
         IEmailService emailService,
         ILogger<HomeController> logger)
     {
-        _emailService = emailService;
-        _logger = logger;
+        this.emailService = emailService;
+        this.logger = logger;
     }
 
     [HttpGet("/")]
-    public async Task<IActionResult> Index(string strategy = EmailSenderStrategies.NoOps)
+    public async Task<IActionResult> Index()
     {
-        var emailSent = await _emailService.SendEmailAsync(
-            new EmailModel
-            {
-                Subject = "Welcome to EduSystem!",
-                Email = "example_user@edusystem.dev",
-                Message = $"You have received email with strategy {strategy}."
-            },
-            strategy);
-        
-        return Ok(emailSent);
+        return this.View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
     }
 }

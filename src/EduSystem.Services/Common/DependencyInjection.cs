@@ -25,10 +25,10 @@ public static class DependencyInjection
             services.Configure<EmailSendGridOptions>(configuration.GetSection("Emails:SendGrid"));
             services.AddKeyedScoped<IEmailSender, SendGridSender>(EmailSenderStrategies.SendGrid);
         }
-        
+
         services.AddScoped<IEmailService, EmailService>();
         services.AddKeyedScoped<IEmailSender, NoOpsSender>(EmailSenderStrategies.NoOps);
-        
+
         return services;
     }
 }

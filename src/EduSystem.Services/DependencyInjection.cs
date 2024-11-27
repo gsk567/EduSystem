@@ -1,4 +1,5 @@
 using EduSystem.Services.Common;
+using EduSystem.Services.Examples;
 using EduSystem.Services.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +14,9 @@ public static class DependencyInjection
     {
         services.AddCommonServices(configuration);
         services.AddIdentityServices();
-        
+
+        services.AddExamplesServices(configuration);
+
         return services;
     }
 }

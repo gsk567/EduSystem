@@ -23,12 +23,12 @@ internal class SendGridSender : IEmailSender
         this.optionsAccessor = optionsAccessor;
         this.logger = logger;
     }
-    
+
     public async Task<StandardResult> SendEmailAsync(EmailModel model)
     {
         try
         {
-            var options = optionsAccessor.Value;
+            var options = this.optionsAccessor.Value;
             var client = new SendGridClient(options.ApiKey);
             var from = new EmailAddress(options.Email, options.Name);
             var to = new EmailAddress(model.Email);

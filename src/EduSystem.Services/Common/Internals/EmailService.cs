@@ -25,7 +25,7 @@ internal class EmailService : IEmailService
             return StandardResult
                 .UnsuccessfulResult($"There is no registered email sender strategy: '{senderStrategy}'");
         }
-        
+
         return await sender.SendEmailAsync(model);
     }
 }

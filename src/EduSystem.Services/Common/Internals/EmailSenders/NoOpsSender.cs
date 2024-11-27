@@ -14,14 +14,14 @@ internal class NoOpsSender : IEmailSender
     {
         this.logger = logger;
     }
-    
+
     public Task<StandardResult> SendEmailAsync(EmailModel model)
     {
         this.logger.LogDebug("Sending email via NoOps");
         this.logger.LogDebug($"Recipient: {model.Email}");
         this.logger.LogDebug($"Subject: {model.Subject}");
         this.logger.LogDebug($"Message: {model.Message}");
-        
+
         return Task.FromResult(StandardResult.SuccessfulResult());
     }
 }
