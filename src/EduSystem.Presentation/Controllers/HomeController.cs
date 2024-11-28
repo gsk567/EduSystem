@@ -23,7 +23,15 @@ public class HomeController : Controller
     [HttpGet("/")]
     public async Task<IActionResult> Index()
     {
-        return this.View();
+        var viewModel = new IndexViewModel
+        {
+            Title = "Index Title",
+            Name = "PEsho",
+        };
+
+        this.ViewBag.Message = "Welcome to EduSystem!!";
+
+        return this.View(viewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
