@@ -1,7 +1,10 @@
 using System.Diagnostics;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using EduSystem.Presentation.Models;
 using EduSystem.Services.Common.Contracts;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -21,6 +24,7 @@ public class HomeController : Controller
     }
 
     [HttpGet("/")]
+    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     public async Task<IActionResult> Index()
     {
         var viewModel = new IndexViewModel

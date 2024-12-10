@@ -17,4 +17,19 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Т.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Т.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Т.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Т.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

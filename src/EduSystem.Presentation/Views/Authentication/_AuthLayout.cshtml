@@ -1,8 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bg">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,28 +19,38 @@
     <!-- Custom styles for this template-->
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="~/css/custom.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="~/EduSystem.Presentation.styles.css" asp-append-version="true"/>
 
 </head>
 
-<body id="page-top">
+<body class="bg-gradient-primary">
 
-<div id="wrapper">
-    <partial name="_Sidebar"/>
-    <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-            <partial name="_TopBar"/>
-            <div class="container-fluid">
-                @RenderBody()
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-7 col-lg-7 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="p-5">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <partial name="_Footer"/>
-    </div>
-</div>
 
-<partial name="_ScrollToTopButton"/>
-<partial name="_LogoutModal"/>
+        </div>
+
+    </div>
+
+</div>
 
 <!-- Bootstrap core JavaScript-->
 <script src="~/vendor/jquery/jquery.min.js"></script>
@@ -52,13 +61,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="~/js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="~/vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="~/js/demo/chart-area-demo.js"></script>
-<script src="~/js/demo/chart-pie-demo.js"></script>
+<partial name="_ValidationScriptsPartial"/>
 
 @await RenderSectionAsync("Scripts", required: false)
 

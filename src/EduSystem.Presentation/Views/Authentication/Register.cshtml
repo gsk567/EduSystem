@@ -1,0 +1,38 @@
+@model RegisterViewModel
+@{
+    Layout = "_AuthLayout";
+}
+
+<div class="text-center">
+    <h1 class="h4 text-gray-900 mb-4">@Т.RegisterTitle</h1>
+</div>
+<form class="user" asp-action="Register" method="post">
+    <div class="form-group">
+        <input asp-for="Email"
+               class="form-control form-control-user"
+               aria-describedby="emailHelp"
+               placeholder="@Т.EmailPlaceholderText">
+        <span class="text-danger text-small" asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <input type="password"
+               asp-for="Password"
+               class="form-control form-control-user"
+               placeholder="@Т.PasswordPlaceholderText">
+        <span class="text-danger text-small" asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <input type="password"
+               asp-for="ConfirmPassword"
+               class="form-control form-control-user"
+               placeholder="@Т.ConfirmPasswordPlaceholderText">
+        <span class="text-danger text-small" asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        @Т.RegisterButtonText
+    </button>
+</form>
+<hr>
+<div class="text-center">
+    <a class="small" href="@Url.Action("Login")">@Т.LoginLinkText</a>
+</div>

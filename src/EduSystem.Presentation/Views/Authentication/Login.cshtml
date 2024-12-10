@@ -1,0 +1,51 @@
+@model LoginViewModel
+@{
+    Layout = "_AuthLayout";
+}
+
+<div class="text-center">
+    <h1 class="h4 text-gray-900 mb-4">@Т.LoginTitle</h1>
+</div>
+
+@if (TempData.ContainsKey("MessageText"))
+{
+    <span class="d-block text-small alert alert-@TempData["MessageVariant"]">
+        @TempData["MessageText"]
+    </span>
+}
+
+<form class="user" asp-action="Login" method="post">
+    <div class="form-group">
+        <input asp-for="Email"
+               class="form-control form-control-user"
+               aria-describedby="emailHelp"
+               placeholder="@Т.EmailPlaceholderText">
+        <span class="text-danger text-small" asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <input type="password"
+               asp-for="Password"
+               class="form-control form-control-user"
+               placeholder="@Т.PasswordPlaceholderText">
+        <span class="text-danger text-small" asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox small">
+            <input 
+                type="checkbox"
+                class="custom-control-input"
+                asp-for="RememberMe">
+            <label class="custom-control-label" asp-for="RememberMe">@Т.RememberMeLabel</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        @Т.LoginButtonText
+    </button>
+</form>
+<hr>
+<div class="text-center">
+    <a class="small" href="@Url.Action("ForgotPassword")">@Т.ForgotPasswordLinkText</a>
+</div>
+<div class="text-center">
+    <a class="small" href="@Url.Action("Register")">@Т.RegisterLinkText</a>
+</div>

@@ -1,0 +1,7 @@
+.text-small {
+    font-size: 14px;
+}
+
+form.user .form-control-user {
+    border-radius: .35rem;
+}
