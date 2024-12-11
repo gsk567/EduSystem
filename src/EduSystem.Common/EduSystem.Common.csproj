@@ -22,6 +22,10 @@
         <Generator>PublicResXFileCodeGenerator</Generator>
         <LastGenOutput>Т.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Emails.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Emails.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -29,6 +33,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Т.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Emails.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Emails.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

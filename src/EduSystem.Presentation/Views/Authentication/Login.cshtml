@@ -1,6 +1,9 @@
+@using System.Net.Http
+@using EduSystem.Presentation.Extensions
 @model LoginViewModel
 @{
     Layout = "_AuthLayout";
+    var globalError = this.ViewContext.ModelState.GetFirstGlobalError();
 }
 
 <div class="text-center">
@@ -11,6 +14,13 @@
 {
     <span class="d-block text-small alert alert-@TempData["MessageVariant"]">
         @TempData["MessageText"]
+    </span>
+}
+
+@if (!string.IsNullOrWhiteSpace(globalError))
+{
+    <span class="d-block text-small alert alert-danger">
+        @globalError
     </span>
 }
 

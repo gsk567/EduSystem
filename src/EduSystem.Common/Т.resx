@@ -72,4 +72,43 @@
     <data name="IRememberedMyPasswordLinkText" xml:space="preserve">
         <value>Спомних си паролата</value>
     </data>
+    <data name="PasswordTooShortErrorMessage" xml:space="preserve">
+        <value>Паролата трябва да е поне 6 символа</value>
+    </data>
+    <data name="PasswordRequiresNonAlphanumericErrorMessage" xml:space="preserve">
+        <value>Паролата трябва да съдържа символ</value>
+    </data>
+    <data name="PasswordRequiresLowerErrorMessage" xml:space="preserve">
+        <value>Паролата трябва да съдържа малка буква</value>
+    </data>
+    <data name="PasswordRequiresUpperErrorMessage" xml:space="preserve">
+        <value>Паролата трябва да съдържа голяма буква</value>
+    </data>
+    <data name="InvalidLoginErrorMessage" xml:space="preserve">
+        <value>Имейлът или паролата не съвпадат</value>
+    </data>
+    <data name="UserLockedOutErrorMessage" xml:space="preserve">
+        <value>Профилът Ви е временно заключен</value>
+    </data>
+    <data name="LogoutButtonText" xml:space="preserve">
+        <value>Изход</value>
+    </data>
+    <data name="LogoutModalTitle" xml:space="preserve">
+        <value>Изход от системата</value>
+    </data>
+    <data name="LogoutModalMessage" xml:space="preserve">
+        <value>Сигурни ли сте, че искате да излезете от Вашия профил?</value>
+    </data>
+    <data name="ResetPasswordButtonText" xml:space="preserve">
+        <value>Смени паролата</value>
+    </data>
+    <data name="ResetPasswordTitle" xml:space="preserve">
+        <value>Смяна на парола</value>
+    </data>
+    <data name="ForgotPasswordSuccessMessage" xml:space="preserve">
+        <value>Вашата заявка беше успешна. Моля проверете имейл адреса си за линк за промяна на парола.</value>
+    </data>
+    <data name="RegisterSuccessMessage" xml:space="preserve">
+        <value>Вашата регистрация беше успешна. Използвайте данните си за да влезете в системата.</value>
+    </data>
 </root>

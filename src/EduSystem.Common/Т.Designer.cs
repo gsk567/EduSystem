@@ -152,5 +152,83 @@ namespace EduSystem.Common {
                 return ResourceManager.GetString("IRememberedMyPasswordLinkText", resourceCulture);
             }
         }
+        
+        public static string PasswordTooShortErrorMessage {
+            get {
+                return ResourceManager.GetString("PasswordTooShortErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string PasswordRequiresNonAlphanumericErrorMessage {
+            get {
+                return ResourceManager.GetString("PasswordRequiresNonAlphanumericErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string PasswordRequiresLowerErrorMessage {
+            get {
+                return ResourceManager.GetString("PasswordRequiresLowerErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string PasswordRequiresUpperErrorMessage {
+            get {
+                return ResourceManager.GetString("PasswordRequiresUpperErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string InvalidLoginErrorMessage {
+            get {
+                return ResourceManager.GetString("InvalidLoginErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string UserLockedOutErrorMessage {
+            get {
+                return ResourceManager.GetString("UserLockedOutErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string LogoutButtonText {
+            get {
+                return ResourceManager.GetString("LogoutButtonText", resourceCulture);
+            }
+        }
+        
+        public static string LogoutModalTitle {
+            get {
+                return ResourceManager.GetString("LogoutModalTitle", resourceCulture);
+            }
+        }
+        
+        public static string LogoutModalMessage {
+            get {
+                return ResourceManager.GetString("LogoutModalMessage", resourceCulture);
+            }
+        }
+        
+        public static string ResetPasswordButtonText {
+            get {
+                return ResourceManager.GetString("ResetPasswordButtonText", resourceCulture);
+            }
+        }
+        
+        public static string ResetPasswordTitle {
+            get {
+                return ResourceManager.GetString("ResetPasswordTitle", resourceCulture);
+            }
+        }
+        
+        public static string ForgotPasswordSuccessMessage {
+            get {
+                return ResourceManager.GetString("ForgotPasswordSuccessMessage", resourceCulture);
+            }
+        }
+        
+        public static string RegisterSuccessMessage {
+            get {
+                return ResourceManager.GetString("RegisterSuccessMessage", resourceCulture);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 using EduSystem.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EduSystem.Services.Identity;
@@ -14,8 +15,10 @@ internal static class DependencyInjection
             {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.SignIn.RequireConfirmedEmail = false;
+                options.Password.RequiredLength = 6;
             })
-            .AddEntityFrameworkStores<EntityContext>();
+            .AddEntityFrameworkStores<EntityContext>()
+            .AddDefaultTokenProviders();
 
         return services;
     }
