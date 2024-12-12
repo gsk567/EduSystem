@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using EduSystem.Presentation.Models;
 using EduSystem.Services.Common.Contracts;
+using EduSystem.Services.Identity.Contracts;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,13 +14,16 @@ namespace EduSystem.Presentation.Controllers;
 public class HomeController : Controller
 {
     private readonly IEmailService emailService;
+    private readonly ICurrentUser currentUser;
     private readonly ILogger<HomeController> logger;
 
     public HomeController(
         IEmailService emailService,
+        ICurrentUser currentUser,
         ILogger<HomeController> logger)
     {
         this.emailService = emailService;
+        this.currentUser = currentUser;
         this.logger = logger;
     }
 

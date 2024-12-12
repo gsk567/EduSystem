@@ -1,4 +1,6 @@
 using EduSystem.Data;
+using EduSystem.Services.Identity.Contracts;
+using EduSystem.Services.Identity.Internals;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +21,8 @@ internal static class DependencyInjection
             })
             .AddEntityFrameworkStores<EntityContext>()
             .AddDefaultTokenProviders();
+
+        services.AddScoped<ICurrentUser, CurrentUser>();
 
         return services;
     }

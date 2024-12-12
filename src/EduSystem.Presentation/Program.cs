@@ -19,6 +19,8 @@ builder.Services
             options.LogoutPath = "/logout";
         });
 
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddData(builder.Configuration);
 builder.Services.AddServices(builder.Configuration);
 
