@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using EduSystem.Data;
 using EduSystem.Presentation;
 using EduSystem.Services;
+using EduSystem.Services.Identity.Constants;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -17,7 +19,25 @@ builder.Services
         {
             options.LoginPath = "/login";
             options.LogoutPath = "/logout";
+            options.AccessDeniedPath = "/access-denied";
         });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(DefaultPolicies.AdminPolicy, policyBuilder =>
+    {
+        policyBuilder.RequireAuthenticatedUser();
+        policyBuilder.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme);
+        policyBuilder.RequireRole(DefaultRoles.Admin);
+    });
+
+    options.AddPolicy(DefaultPolicies.UserPolicy, policyBuilder =>
+    {
+        policyBuilder.RequireAuthenticatedUser();
+        policyBuilder.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme);
+        policyBuilder.RequireRole(DefaultRoles.User);
+    });
+});
 
 builder.Services.AddHttpContextAccessor();
 

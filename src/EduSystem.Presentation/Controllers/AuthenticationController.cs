@@ -6,6 +6,7 @@ using EduSystem.Data;
 using EduSystem.Presentation.Extensions;
 using EduSystem.Presentation.Models;
 using EduSystem.Services.Common.Contracts;
+using EduSystem.Services.Identity.Constants;
 using EduSystem.Services.Identity.Extensions;
 using Essentials.Extensions;
 using Microsoft.AspNetCore.Authentication;
@@ -111,16 +112,19 @@ public class AuthenticationController : Controller
 
         if (this.ModelState.IsValid)
         {
+            var user = new ApplicationUser
+            {
+                UserName = model.Email,
+                Email = model.Email,
+            };
             var result = await this.userManager.CreateAsync(
-                new ApplicationUser
-                {
-                    UserName = model.Email,
-                    Email = model.Email,
-                },
+                user,
                 model.Password!);
 
             if (result.Succeeded)
             {
+                await this.userManager.AddToRoleAsync(user, DefaultRoles.User);
+
                 this.TempData["MessageText"] = Т.RegisterSuccessMessage;
                 this.TempData["MessageVariant"] = "success";
                 return this.RedirectToAction(nameof(this.Login));
@@ -237,6 +241,12 @@ public class AuthenticationController : Controller
         }
 
         return this.View(model);
+    }
+
+    [HttpGet("/access-denied")]
+    public IActionResult AccessDenied()
+    {
+        return this.View();
     }
 
     [HttpPost("/logout")]
